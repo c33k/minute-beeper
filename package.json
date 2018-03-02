@@ -1,0 +1,28 @@
+{
+  "name": "minute-beeper",
+  "version": "1.0.0",
+  "description": "A tiny timer that receives integers (minutes) and beeps when on each minute received as input",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tape tests/*.js"
+  },
+  "keywords": [
+    "timer",
+    "beeper",
+    "minutes"
+  ],
+  "author": "Rafael L. Toscano (c33k)",
+  "license": "ISC",
+  "devDependencies": {
+    "concat-stream": "^1.6.1",
+    "coverify": "^1.5.0",
+    "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "beepbeep": "^1.2.1"
+  }
+}
