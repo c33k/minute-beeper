@@ -4,12 +4,12 @@ var Readable = require('stream').Readable
 
 module.exports = (minutes, startMilisec) => {
     if( !!minutes ) {
+        var rs = new Readable()
+        rs._read = function () {}
+        
         if( !Array.isArray(minutes)) throw new Error('arguments should be an array')
         if( minutes.length === 0 ) throw new Error('array can\'t be empty')
         
-        var rs = new Readable()
-        rs._read = function () {}
-
         startMilisec = startMilisec >= 0 ? startMilisec : 0
         var interval = setInterval( () => {
             startMilisec += 1000
