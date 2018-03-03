@@ -10,10 +10,10 @@ module.exports = (minutes, startMilisec) => {
         var rs = new Readable()
         rs._read = function () {}
 
-        var currentTime = startMilisec || 0
+        startMilisec = startMilisec >= 0 ? startMilisec : 0
         var interval = setInterval( () => {
-            currentTime += 1000
-            rs.push(`${currentTime/1000} seconds\n`)
+            startMilisec += 1000
+            rs.push(`${startMilisec/1000} seconds\n`)
         }, 1000)
 
         setTimeout(function () {
@@ -21,8 +21,12 @@ module.exports = (minutes, startMilisec) => {
             rs.push(`${minutes[0]} minute${minutes[0] > 1 ? 's' : '' }!\n`)
             rs.push(null)
             beep()
-        }, minutes[0] * (60 * 1000 - startMilisec) )//stop after x minutes
+        }, calcWhenToStop(minutes[0], startMilisec))//stop after x minutes
 
         return rs
     }
 }
+
+function calcWhenToStop(minute, startMilisec) {
+    return minute * (60 * 1000 - startMilisec)
+} 
