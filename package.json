@@ -8,7 +8,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "tape tests/*.js"
+    "test": "tape tests/*.js",
+    "coverage": "browserify -t coverify tests/*.js --node | node | coverify"
   },
   "keywords": [
     "timer",
