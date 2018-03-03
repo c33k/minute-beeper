@@ -4,7 +4,6 @@ var concat = require('concat-stream')
 
 test('Array with one minute should output "1 minute"', function (t) {
     var mt = MinuteTimer( [1], 58000)  
-
     mt.pipe(concat(function (output) {
         var oneMinuteOutput = /1\sminute\!/.test(output)
         t.ok( oneMinuteOutput )
