@@ -10,7 +10,7 @@ module.exports = (minutes, fast) => {
         if( !Array.isArray(minutes)) throw new Error('arguments should be an array')
         if( minutes.length === 0 ) throw new Error('array can\'t be empty')
  
-        var milliseconds = minutes.sort().map(minute => minute*60*1000);
+        var milliseconds = minutes.sort().filter(number => number > 0).map(minute => minute*60*1000);
         startCounting(milliseconds, fast, rs)
         
         return rs
