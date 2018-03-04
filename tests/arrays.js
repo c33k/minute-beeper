@@ -11,15 +11,15 @@ test('Array with one minute should output "1 minute"', function (t) {
     })) 
 })
 
-/*test('[1, 2], should output "1 minute" and "2 minutes"', function (t) {
-    var incrementInSeconds = 50
-    var mt = MinuteTimer( [1,2], 50)  
+test('[1, 2], should output "1 minute" and "2 minutes"', function (t) {
+    t.plan(2)
+    var mt = MinuteTimer( [1,2], true )  
  
     mt.pipe(concat(function (output) {
         t.ok( /1\sminute\!/.test(output) )
-        t.end()
+        t.ok( /2\sminutes\!/.test(output) )
     })) 
-})*/
+})
 
 test('throw error when empty array is provided as argument', function (t) {
     t.plan(1)
