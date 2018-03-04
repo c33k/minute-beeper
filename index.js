@@ -21,8 +21,6 @@ function startCounting(millisecs, fast, rs) {
     var minute;
     var currentTime = 0
 
-
-    //2 - implement getTimeString
     var timeToBeep = millisecs.shift()
 
     var interval = setInterval( () => {
@@ -46,7 +44,3 @@ function startCounting(millisecs, fast, rs) {
 
     }, 1000)
 }
-
-        //rs.push(`${minutes[0]} minute${minutes[0] > 1 ? 's' : '' }!\n`)
-        //rs.push(null)
-        //beep()
